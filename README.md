@@ -24,13 +24,13 @@ This is a Flask-based OCR (Optical Character Recognition) pipeline that extracts
 
 ### Processing Flow
 ```mermaid
-graph TD
+flowchart TD
     A["Document Upload (PDF/Image)"] --> B["OCR Service"]
     B --> C{"Text Extracted?"}
     C -->|No| D["Error Response"]
     C -->|Yes| E["Field Extractor"]
     E --> F["Raw Data (Name, Amount, Date, ID)"]
-    F --> G("Validator")
+    F --> G["Validator"]
     G --> H{"Is Data Valid?"}
     H -->|No| I["Automated Action: Manual Review Required"]
     H -->|Yes| J["Automated Action: Automated Processing and Integration"]
