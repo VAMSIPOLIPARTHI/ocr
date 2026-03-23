@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "ocr_text": "Sample text extracted from document...",
+  "data": {
+    "name": "John Doe",
+    "amount": "45000",
+    "date": "21-03-2026",
+    "id": "INV-101"
+  },
+  "validation": {
+    "is_valid": true,
+    "errors": []
+  },
+  "action": "Action: Automated Processing & Integration Triggered"
+}
+

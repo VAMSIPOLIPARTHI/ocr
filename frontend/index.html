@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent OCR Pipeline</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="background-elements">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i data-lucide="scan-line"></i>
+                <h1>OCR Intelligence</h1>
+            </div>
+            <p>Automated document extraction and validation pipeline.</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section id="uploadSection" class="upload-card glass-panel">
+                <div class="drop-zone" id="dropZone">
+                    <i data-lucide="upload-cloud" class="upload-icon"></i>
+                    <h2>Drag & Drop Document</h2>
+                    <p>or click to browse files (PDF, PNG, JPG)</p>
+                    <input type="file" id="fileInput" accept=".pdf, .png, .jpg, .jpeg" hidden>
+                    <button class="btn primary-btn" id="browseBtn">Select File</button>
+                </div>
+                <!-- Selected File Display -->
+                <div id="fileInfo" class="file-info hidden">
+                    <i data-lucide="file-text"></i>
+                    <span id="fileName">No file selected</span>
+                    <button id="clearFileBtn" class="icon-btn" title="Clear file"><i data-lucide="x"></i></button>
+                </div>
+                <button id="processBtn" class="btn process-btn hidden">
+                    <i data-lucide="cpu"></i> Process Document
+                </button>
+            </section>
+
+            <!-- Loading Overlay -->
+            <div id="loadingOverlay" class="loading-overlay hidden">
+                <div class="spinner"></div>
+                <h3>Extracting Data...</h3>
+                <p>Running OCR and AI analysis on your document.</p>
+            </div>
+
+            <!-- Error Notification -->
+            <div id="errorNotification" class="notification error glass-panel hidden">
+                <i data-lucide="alert-circle"></i>
+                <span id="errorMessage">An error occurred.</span>
+            </div>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section hidden">
+                <div class="results-header">
+                    <h2>Extraction Results</h2>
+                    <button id="newUploadBtn" class="btn secondary-btn">New Document</button>
+                </div>
+
+                <div class="status-banners">
+                    <div id="validationBanner" class="banner success">
+                        <i data-lucide="check-circle"></i>
+                        <span id="validationText">Data Validation Successful</span>
+                    </div>
+                    <div id="actionBanner" class="banner action bg-blue text-white">
+                        <i data-lucide="zap"></i>
+                        <span id="actionText">Action Triggered</span>
+                    </div>
+                </div>
+
+                <div class="data-grid glass-panel">
+                    <div class="data-card">
+                        <div class="card-icon"><i data-lucide="user"></i></div>
+                        <div class="card-content">
+                            <h4>Name</h4>
+                            <p id="resName">-</p>
+                        </div>
+                    </div>
+                    <div class="data-card">
+                        <div class="card-icon"><i data-lucide="dollar-sign"></i></div>
+                        <div class="card-content">
+                            <h4>Amount</h4>
+                            <p id="resAmount">-</p>
+                        </div>
+                    </div>
+                    <div class="data-card">
+                        <div class="card-icon"><i data-lucide="calendar"></i></div>
+                        <div class="card-content">
+                            <h4>Date</h4>
+                            <p id="resDate">-</p>
+                        </div>
+                    </div>
+                    <div class="data-card">
+                        <div class="card-icon"><i data-lucide="hash"></i></div>
+                        <div class="card-content">
+                            <h4>ID</h4>
+                            <p id="resId">-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="raw-ocr glass-panel">
+                    <div class="raw-header">
+                        <i data-lucide="file-type"></i>
+                        <h3>Raw OCR Output</h3>
+                    </div>
+                    <textarea id="rawOcrText" readonly></textarea>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>
