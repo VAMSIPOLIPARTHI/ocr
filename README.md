@@ -27,14 +27,13 @@ This is a Flask-based OCR (Optical Character Recognition) pipeline that extracts
 graph TD
     A["Document Upload (PDF/Image)"] --> B["OCR Service"]
     B --> C{"Text Extracted?"}
-    C -- No --> D["Error Response"]
-    C -- Yes --> E["Field Extractor"]
+    C -->|No| D["Error Response"]
+    C -->|Yes| E["Field Extractor"]
     E --> F["Raw Data (Name, Amount, Date, ID)"]
-    G("Validator")
-    F --> G
+    F --> G("Validator")
     G --> H{"Is Data Valid?"}
-    H -- No --> I["Automated Action: Manual Review Required"]
-    H -- Yes --> J["Automated Action: Automated Processing & Integration"]
+    H -->|No| I["Automated Action: Manual Review Required"]
+    H -->|Yes| J["Automated Action: Automated Processing and Integration"]
 ```
 
 
